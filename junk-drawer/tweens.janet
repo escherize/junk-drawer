@@ -176,7 +176,6 @@ examples/07-tweens.janet for more!
              :table (merge (current key) val))))
 
     # Tick the tweens elapsed time, delete it if we've reached its duration
-    (if-let [new-elapsed (+ elapsed 1)
-             complete? (> new-elapsed duration)]
+    (if-let [complete? (> new-elapsed duration)]
       (remove-entity wld tween-ent)
-      (put tween-data :elapsed-time new-elapsed))))
+      (put tween-data :elapsed-time (+ elapsed 1)))))
